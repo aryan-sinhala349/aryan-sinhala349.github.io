@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Consolas';
-    src:    url('Conolas.woff2') format('woff2'),
-            url('Consolas.woff') format('woff');
+    src:    url('../fonts/Consolas/Consolas.woff2') format('woff2'),
+            url('../fonts/Consolas/Consolas.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
