@@ -1,15 +1,19 @@
 <html>
     <head>
+        <meta name="viewport" contextmenu="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/styles.css">
         <link rel="stylesheet" href="../styles/nav.css">
-        <title></title>
+        <title>Projects | Aryan Sinha</title>
     </head>
     <body>
         <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/projects/" class="active">Projects</a></li>
-            </ul>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/">Home</a>
+            <a href="/projects" class="active">Projects</a>
         </nav>
+
+        <img onclick="openNav()" class="cursor-point" id="open" src="../images/hamburger-icon.svg" alt="Menu">
+
+        <script src="/scripts/nav.js"></script>
     </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" contextmenu="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/nav.css">
         <title>Aryan Sinha</title>
@@ -79,18 +80,20 @@
     </head>
     <body>
         <nav>
-            <ul>
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/projects">Projects</a></li>
-            </ul>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/" class="active">Home</a>
+            <a href="/projects">Projects</a>
         </nav>
+
+        <img onclick="openNav()" class="cursor-point" id="open" src="images/hamburger-icon.svg" alt="Menu">
+
         <main id="output">
             <h1 class="class-template cursor"></h1>
             <h2 class=""></h2>
         </main>
         <script>
             var i = 0, isHeader2 = false;
-            var text = "Aryan Sinha|C++ Developer";
+            var text = "Aryan Sinha|Student";
 
             var waitTime = 500;
             var speedForward = 100; //Typing speed in milliseconds
@@ -127,5 +130,6 @@
                 }
             }
         </script>
+        <script src="/scripts/nav.js"></script>
     </body>
 </html>

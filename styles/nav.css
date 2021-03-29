@@ -1,34 +1,52 @@
 nav {
-    position: absolute;
-    top: 0px;
-    width: 100vw;
-    height: 1vmax;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background-color: #2D2D30;
+    overflow-x: hidden;
+    padding-top: 6vh;
+    transition: 0.5s;
+    text-align: left;
 }
 
-nav li {
-    float: left;
-}
-
-nav li a {
-    display: block;
-    color: #DCDCDC;
-    text-align: center;
-    padding: 1vmin 1vmax;
+nav a {
+    padding: 1vh 1vh 1vh 4vh;
     text-decoration: none;
+    font-size: 5vh;
+    color: #DCDCDC;
+    display: block;
+    transition: 0.3s;
 }
 
-nav li a:hover {
+nav a:hover {
     background-color: #3E3E40;
 }
 
-nav li .active {
+nav .closebtn {
+    background-color: #2D2D30;
+    position: absolute;
+    top: 0;
+    right: 1vw;
+    font-size: 5vh;
+    margin-left: 100%;
+    padding: 0px;
+}
+
+nav .closebtn:hover {
+    background-color: #2D2D30;
+}
+
+nav a .active {
     background-color: #1B1B1C;
+}
+
+#open {
+    position: fixed;
+    top: 1vmin;
+    left: 1vmin;
+    font-size: 5vh;
+    height: 5vh;
 }
