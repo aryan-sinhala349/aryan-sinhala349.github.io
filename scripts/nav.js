@@ -1,5 +1,5 @@
 function openNav() {
-    let viewportWidth = window.screen.availWidth;
+    let viewportWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
     if (viewportWidth < 480)
         document.getElementsByTagName("nav")[0].style.width = "100%";
