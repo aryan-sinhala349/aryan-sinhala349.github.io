@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Consolas';
+    src:    url('Conolas.woff2') format('woff2'),
+            url('Consolas.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background-color: #1E1E1E;
+    font-family: 'Consolas';
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    color: #DCDCDC;
+}
+
+.class-template {
+    color: #4EC9B0;
+}
