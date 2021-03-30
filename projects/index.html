@@ -34,10 +34,23 @@
             h1 {
                 text-align: center;
                 font-size: 10vmin;
-                margin-bottom: 1vh;
+                margin-bottom: 10vh;
             }
 
-            @media screen and (max-width: 1200px) {
+            .fade-in {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.6s ease-out;
+                will-change: opacity, visibility;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: none;
+                visibility: visible;
+            }
+
+            @media screen and (max-width: 1000px) {
                 .project {
                     width: 80vw;
                     height: 80vw;
@@ -58,11 +71,32 @@
         <h1 class="class-template">Projects</h1>
 
         <div class="projects">
-            <div class="project">1</div>
-            <div class="project">2</div>
-            <div class="project">3</div>
+            <div class="project fade-in">1</div>
+            <div class="project fade-in">2</div>
+            <div class="project fade-in">3</div>
+            <div class="project fade-in">4</div>
+            <div class="project fade-in">5</div>
+            <div class="project fade-in">6</div>
+            <div class="project fade-in">7</div>
+            <div class="project fade-in">8</div>
+            <div class="project fade-in">9</div>
         </div>
 
         <script src="/scripts/nav.js"></script>
+        <script>
+            let scroll = window.requestAnimationFrame || function(callback) { window.setTimeout(callback, 1000 / 60)};
+            var elementsToShow = document.querySelectorAll('.fade-in');
+
+            let timeBetweenFade = 300;
+
+            fadeIn();
+
+            function fadeIn() {
+                elementsToShow.forEach((element, i) => {
+                        setTimeout(() => { element.classList.add("visible") }, i * timeBetweenFade);
+                });
+            }
+
+        </script>
     </body>
 </html>
