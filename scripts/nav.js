@@ -1,8 +1,8 @@
 let open = false;
 
-window.addEventListener('resize', () => {
+window.onresize = function () {
     if (open) openNav();
-});
+}
 
 function openNav() {
     //Get the aspect ratio of the viewport
@@ -20,8 +20,6 @@ function openNav() {
 
     open = true;
 }
-
-
 
 function closeNav() {
     document.getElementsByTagName("nav")[0].style.width = "0%";
