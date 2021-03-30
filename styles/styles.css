@@ -20,6 +20,10 @@ body {
     color: #4EC9B0;
 }
 
+.keyword {
+    color: #569CD6;
+}
+
 .cursor-point {
     cursor: pointer;
 }

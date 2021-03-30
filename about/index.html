@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" contextmenu="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/styles.css">
+        <link rel="stylesheet" href="../styles/nav.css">
+        <title>About Me | Aryan Sinha</title>
+
+        <style>
+            h1 {
+                text-align: center;
+                font-size: 10vmin;
+                margin-bottom: 1vh;
+            }
+
+            p {
+                text-align: center;
+                font-size: 3vmin;
+                margin: 1vmax;
+            }
+
+            ul {
+                display: table;
+                margin: 0 auto;
+                font-size: 3vmin;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/">Home</a>
+            <a href="/projects" class="active">Projects</a>
+            <a href="/about" class="active">About Me</a>
+        </nav>
+
+        <img onclick="openNav()" class="cursor-point" id="open" src="../images/hamburger-icon.svg" alt="Menu">
+
+        <h1 class="class-template">About Me</h1>
+        <p>Hi, I'm <span class="class-template">Aryan Sinha</span>, and I'm a student and a developer. My main languages are 
+            <span class="keyword">C++</span>,  <span class="keyword">C#</span>, <span class="keyword">Java</span>, and <span class="keyword">JavaScript</span>.
+            <br><br>
+            While my interests in development lie in multiple places, recently I've been working on game development, cloud development, and Amazon Lex integration.
+            <br><br>
+            My certifications include:
+        </p> 
+            <ul>
+                <li>Amazon Web Services Certified Cloud Practitioner</li>
+                <li>Microsoft Technology Associate (Introduction to Programming using HTML & CSS)</li>
+            </ul>
+        
+        <p>
+            <br>
+            Currently I am a high school senior, and am graduating <span class="keyword">this</span> year. From there I plan to go to 
+            university for <span class="class-template">Computer Science</span>.
+        <p>
+        <script src="/scripts/nav.js"></script>
+    </body>
+</html>
