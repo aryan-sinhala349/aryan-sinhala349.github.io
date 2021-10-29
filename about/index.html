@@ -55,14 +55,11 @@
                 {
                     data = content;
                     document.getElementById('content').innerHTML = marked(data);
-                    console.log(document.getElementById('content').innerHTML);
                 }
             }).fail(function()
             {
                 document.getElementById('content').innerHTML = marked(data);
-                console.log(document.getElementById('content').innerHTML);
             });
-
         </script>
         <script src="../scripts/nav.js"></script>
     </body>

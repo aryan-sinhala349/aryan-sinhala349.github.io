@@ -90,7 +90,7 @@
         <img onclick="openNav()" class="cursor-point" id="open" src="images/hamburger-icon.svg" alt="Menu">
 
         <main id="output">
-            <h1 class="class-template cursor"></h1>
+            <h1 class="cursor"></h1>
             <h2 class=""></h2>
         </main>
         <script>
@@ -115,6 +115,8 @@
                     if (text.charAt(i) == "|") {
                         isHeader2 = true;
                         eHeader1.classList.remove("cursor");
+                        //Add the class template after the cursor is finished typing to make things look a little bit nicer
+                        eHeader1.classList.add("class-template");
                         eHeader2.classList.add("cursor");
                         i++;
                         setTimeout(function() { typeWriter(id); }, speedBetweenLines);
