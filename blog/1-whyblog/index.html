@@ -3,16 +3,17 @@
     <head>
         <meta name="viewport" contextmenu="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../styles/styles.css">
-        <link rel="stylesheet" href="../styles/nav.css">
+        <link rel="stylesheet" href="../../styles/styles.css">
+        <link rel="stylesheet" href="../../styles/nav.css">
 
-        <title>About | Aryan Sinha</title>
+        <title>Why Blog? | Aryan Sinha</title>
 
         <style>
             body {
                 margin-left: 10vw;
                 margin-right: 10vw;
-                margin-top: 20vh;
+                margin-top: 10vh;
+                margin-bottom: 20vh;
             }
 
             pre {
@@ -23,12 +24,16 @@
             h1 {
                 text-align: center;
                 font-size: 10vmin;
-                margin-bottom: 10vh;
+            }
+
+            h2 {
+                text-align: center;
+                font-size: 8vmin;
             }
 
             p {
                 text-align: center;
-                font-size: 5vmin;
+                font-size: 2.5vmin;
                 margin: 1vmax;
             }
 
@@ -42,12 +47,12 @@
     <body>
         <nav>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="../" class="active">Home</a>
-            <a href="../about">About</a>
-            <a href="../blog">Blog</a>
+            <a href="../../" class="active">Home</a>
+            <a href="../../about">About</a>
+            <a href="../../blog">Blog</a>
         </nav>
 
-        <img onclick="openNav()" class="cursor-point" id="open" src="../images/hamburger-icon.svg" alt="Menu">
+        <img onclick="openNav()" class="cursor-point" id="open" src="../../images/hamburger-icon.svg" alt="Menu">
 
         <div id="content"></div>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">></script>
@@ -67,7 +72,7 @@
             });
 
             jQuery.ajax({
-                url: 'about.md',
+                url: 'post.md',
                 success: function(content)
                 {
                     data = content;
@@ -78,6 +83,6 @@
                 document.getElementById('content').innerHTML = marked(data);
             });
         </script>
-        <script src="../scripts/nav.js"></script>
+        <script src="../../scripts/nav.js"></script>
     </body>
 </html>

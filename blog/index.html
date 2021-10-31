@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../styles/styles.css">
         <link rel="stylesheet" href="../styles/nav.css">
 
-        <title>About | Aryan Sinha</title>
+        <title>Blog | Aryan Sinha</title>
 
         <style>
             body {
@@ -37,6 +37,58 @@
                 margin: 0 auto;
                 font-size: 3vmin;
             }
+
+            .posts {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                position: absolute;
+                left: 5vw;
+                right: 5vw;
+
+                max-width: 100%;
+                
+                text-align: center;
+            }
+
+            .post {
+                border-radius: 0.5em;
+                width: 20vw;
+                height: 15vh;
+                background-color: #333333;
+                margin: 1vmax;
+                font-size: 4vh;
+                text-align: center;
+                padding: 1vmin;
+            }
+
+            .post h1 {
+                font-size: 5vh;
+                margin-bottom: 0px;
+            }
+
+            .post h2 {
+                font-size: 2vh;
+            }
+
+            a:link {
+                color: #DCDCDC;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: #DCDCDC;
+            }
+
+            a:hover {
+                color: #DCDCDC;
+                text-decoration: underline;
+            }
+
+            a:active {
+                color: #DCDCDC;
+            }
         </style>
     </head>
     <body>
@@ -49,7 +101,9 @@
 
         <img onclick="openNav()" class="cursor-point" id="open" src="../images/hamburger-icon.svg" alt="Menu">
 
-        <div id="content"></div>
+        <h1>Blog</h1>
+        <div class="posts" id="content">
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
@@ -67,11 +121,31 @@
             });
 
             jQuery.ajax({
-                url: 'about.md',
+                url: 'posts.json',
                 success: function(content)
                 {
-                    data = content;
-                    document.getElementById('content').innerHTML = marked(data);
+                    for (i = 0; i < content.posts.length; i++)
+                    {
+                        let dir = content.posts[i].dir;
+
+                        jQuery.ajax({
+                            url: content.posts[i].dir + '/info.json',
+                            success: function(data)
+                            {
+                                const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' } 
+
+                                let name = data.name;
+                                let date = new Date(data.date);
+
+                                document.getElementById('content').innerHTML += "<a href=\"" + dir + "\"><div class=\"post\">\n<h1>"+
+                                    name + "</h1>\n<h2>" + date.toLocaleString(undefined, options) + "</h2>\n</div></a>"
+                            }
+                        }).fail(function()
+                        {
+                            document.getElementById('content').innerHTML = marked(data);
+                            return;
+                        });
+                    }
                 }
             }).fail(function()
             {
