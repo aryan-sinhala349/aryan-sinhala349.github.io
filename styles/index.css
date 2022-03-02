@@ -1,0 +1,85 @@
+:root
+{
+    --background-color: #1E1E1E;
+    --text-color: #E1E1E1;
+    --h1-size: 15vh;
+    --h2-size: 6vh;
+}
+
+body
+{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0px;
+
+    width: 100%;
+    height: 100vh;
+}
+
+main
+{
+    background-image: url("../images/index-background.png");
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #555555;
+
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1
+{
+    font-size: var(--h1-size);
+}
+
+h2
+{
+    font-size: var(--h2-size);
+}
+
+main h1
+{
+    padding-top: calc(50vh - 1em);
+    margin: 0px;
+}
+
+main h2
+{
+    padding: 0px 0;
+    margin: 0px;
+    margin-top: 0.5em;
+}
+
+#tagline
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px;
+}
+            
+#cursor
+{
+    display: inline-block;
+    vertical-align: middle;
+    width: 3px;
+    height: var(--h2-size);
+    background-color: var(--text-color);
+    margin: 0px;
+    animation: blink .75s step-end infinite;
+}
+
+@keyframes blink
+{
+    from, to
+    {
+        background-color: transparent;
+    }
+
+    50%
+    {
+        background-color: var(--text-color);
+    }
+}

@@ -1,138 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" contextmenu="width=device-width, initial-scale=1.0">
-        <meta name="description" context='Aryan Sinha is a high school student and a software developer. His main languages are C++, C#, Java, and JavaScript. He is studying Computer Science.'>
-
-        <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="styles/nav.css">
         <title>Aryan Sinha</title>
-        <style>
-            main {
-                width: 100%;
-                height: 100vh;
-            
-                text-align: center;
-                vertical-align: middle;
-
-                margin: 0px;
-                padding: 0px;
-            }
-
-            main h1 {
-                font-size: 15vmin;
-                height: 15vmin;
-                
-                position: relative;
-                top: calc(50% - 10vh);
-
-                margin: 0px;
-                padding: 0px;
-            }
-            
-            main h2 {
-                font-size: 5vmin;
-                height: 15vmin;
-
-                position: relative;
-                top: calc(50% - 10vh);
-
-                margin: 0px;
-                padding: 0px;
-            }
-
-            .cursor::after {
-                content: '';
-                display: inline-block;
-                margin-left: 1vmin;
-                animation-name: blink;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-            }
-
-            h1.cursor::after {
-                height: 13vmin;
-                width: .1%;
-
-                border-right: 3px solid #DCDCDC;
-            }
-
-            h2.cursor::after {
-                height: 3vmin;
-                width: .1%;
-
-                border-right: 3px solid #DCDCDC;
-            }
-
-            @keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-                49% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 0;
-                }
-            }
-        </style>
+        <link href="styles/stylesheet.css" rel="stylesheet">
+        <link href="styles/index.css" rel="stylesheet">
     </head>
     <body>
-        <nav>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/" class="active">Home</a>
-            <a href="/about">About</a>
-            <a href="/blog">Blog</a>
-        </nav>
-
-        <img onclick="openNav()" class="cursor-point" id="open" src="images/hamburger-icon.svg" alt="Menu">
-
-        <main id="output">
-            <h1 class="cursor"></h1>
-            <h2 class=""></h2>
+        <main>
+            <h1>Aryan Sinha</h1>
+            <h2 id="tagline"></h2> <div id="cursor"></div>
         </main>
-        <script>
-            var i = 0, isHeader2 = false;
-            var text = "Aryan Sinha|Student, Developer";
-
-            var waitTime = 500;
-            var speedForward = 100; //Typing speed in milliseconds
-            var speedBetweenLines = 500; //The amount of time between lines in milliseconds
-
-            setTimeout(function() { typeWriter("output"); }, waitTime); 
-
-            function typeWriter(id) {
-                let element = document.getElementById(id);
-
-                let eHeader1 = element.getElementsByTagName("h1")[0]; //Header element
-                let eHeader2 = element.getElementsByTagName("h2")[0]; //Subheader element
-
-                //If typing still needs to occur
-                if (i < text.length) {
-                    //Create a new line
-                    if (text.charAt(i) == "|") {
-                        isHeader2 = true;
-                        eHeader1.classList.remove("cursor");
-                        //Add the class template after the cursor is finished typing to make things look a little bit nicer
-                        eHeader1.classList.add("class-template");
-                        eHeader2.classList.add("cursor");
-                        i++;
-                        setTimeout(function() { typeWriter(id); }, speedBetweenLines);
-                    } else {
-                        if (!isHeader2)
-                            eHeader1.innerHTML = eHeader1.innerText + text.charAt(i);
-                        else
-                            eHeader2.innerHTML = eHeader2.innerText + text.charAt(i);
-
-                        i++;
-                        setTimeout(function() { typeWriter(id); }, speedForward);
-                    }
-                }
-            }
-        </script>
-        <script src="/scripts/nav.js"></script>
+        <script src="scripts/index.js" />
     </body>
 </html>
