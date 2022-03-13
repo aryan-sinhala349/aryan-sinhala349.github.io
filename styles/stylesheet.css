@@ -11,3 +11,8 @@ body
     font-weight: normal;
     font-style: normal;
 }
+
+.debug-outline
+{
+    border: 1px solid red;
+}
