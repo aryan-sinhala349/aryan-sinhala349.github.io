@@ -1,76 +1,77 @@
-//All the possible taglines
-const taglines = 
-[
-    "Student",
-    "Developer"
-];
-
-const timeBetweenTypingChars = 60;
-const timeBetweenDeletingChars = 30;
-
-const timeBetweenTypingWords = 1000;
-const timeBetweenDeletingWords = 2500;
-
-//Current tagline being processed
-let currentTagline = 0;
-
-//Index of the character being processed
-let currentCharacter = 0;
-
-//Holds the handle returned from setInterval
-let intervalValue;
-
-//Element that holds the tagline
-const taglineElement = document.querySelector("#tagline");
-
-//Element that holds the cursor
-const cursorElement = document.querySelector("#cursor");
-
-//Implements typing effect
-function Type()
+const isMobile = () =>
 {
-    //Get the substring with 1 character added
-    let text = taglines[currentTagline].substring(0, currentCharacter + 1);
-    taglineElement.innerHTML = text;
-    currentCharacter++;
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+};
 
-    //If the full sentence has been displayed then start to delete the sentence after some delay
-    if (text === taglines[currentTagline])
+const blobElement = document.getElementById("blob");
+const nameElement = document.getElementById("name");
+const subtitleElement = document.getElementById("subtitle");
+
+const typingDelay = 100;
+const newlineDelay = 500;
+
+const nameText = "Aryan Sinha";
+const subtitleText = "Computer Science Student"
+
+let i = 0;
+
+function typeName()
+{
+    nameElement.innerHTML = nameText.substring(0, i);
+    i++;
+
+    while (nameText.charAt(i) == ' ')
+        i++;
+
+    if (i <= nameText.length)
+        setTimeout(typeName, typingDelay);
+    else
     {
-        clearInterval(intervalValue);
+        i = 0;
         setTimeout(() =>
         {
-            intervalValue = setInterval(Delete, timeBetweenDeletingChars);
-        }, timeBetweenDeletingWords);
+            nameElement.classList.remove("typing");
+            subtitleElement.classList.add("typing");
+            typeSubtitle();
+        }, newlineDelay);
     }
 }
 
-//Implements deleting effect
-function Delete()
+function typeSubtitle()
 {
-    //Get substring with 1 character deleted
-    var text = taglines[currentTagline].substring(0, currentCharacter - 1);
-    taglineElement.innerHTML = text;
-    currentCharacter--;
+    subtitleElement.innerHTML = subtitleText.substring(0, i);
+    i++;
 
-    //If the sentence has been deleted then start to display the next sentence
-    if (text === "")
-    {
-        clearInterval(intervalValue);
+    while (subtitleText.charAt(i) == ' ')
+        i++;
 
-        //Display the next sentence
-        currentTagline++;
-        currentTagline %= taglines.length;
-
-        currentCharacter = 0;
-
-        //Start to display the next sentence
-        setTimeout(() => 
-        {
-            intervalValue = setInterval(Type, timeBetweenTypingChars);
-        }, timeBetweenTypingWords);
-    }
+    if (i <= subtitleText.length)
+        setTimeout(typeSubtitle, typingDelay);
 }
 
-//Start the typing effect on load
-intervalValue = setInterval(Type, timeBetweenTypingChars);
+document.onmousemove = (event) =>
+{
+    if (!isMobile())
+    {
+        blobElement.animate(
+            {
+                left: `${event.clientX}px`,
+                top: `${event.clientY}px`
+            },
+            { duration: 250, fill: "forwards" });
+    }
+};
+
+typeName();

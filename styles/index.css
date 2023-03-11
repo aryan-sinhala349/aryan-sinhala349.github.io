@@ -1,85 +1,99 @@
-:root
+@import "../fonts/Consolas/stylesheet.css";
+
+::selection
 {
-    --background-color: #1E1E1E;
-    --text-color: #E1E1E1;
-    --h1-size: 15vh;
-    --h2-size: 6vh;
+    background: var(--highlighted-text);
+}
+
+html
+{
+    background-color: var(--dark-background-color);
+    z-index: -1;
 }
 
 body
 {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0px;
-
-    width: 100%;
-    height: 100vh;
+    background: radial-gradient(var(--light-background-color), var(--dark-background-color));
+    color: var(--plain-text);
+    font-family: "Consolas";
+    z-index: -1;
 }
 
 main
 {
-    background-image: url("../images/index-background.png");
-    background-size: cover;
-    background-blend-mode: multiply;
-    background-color: #555555;
+    position: absolute;
+    overflow: hidden;
 
-    text-align: center;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-h1
-{
-    font-size: var(--h1-size);
-}
-
-h2
-{
-    font-size: var(--h2-size);
-}
-
-main h1
-{
-    padding-top: calc(50vh - 1em);
+    width: 100vw;
+    height: 100vh;
     margin: 0px;
+    padding: 0px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 }
 
-main h2
+.typing::after {
+    content: "|";
+    position: absolute;
+    animation: cursor 1.0s steps(2, jump-none) infinite;
+}
+
+#blob
 {
-    padding: 0px 0;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    width: 30vmin;
+    height: 30vmin;
+    background-color: var(--special-text);
+    opacity: 0.25;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+}
+
+#blur
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    backdrop-filter: blur(20vmin);
+    -webkit-backdrop-filter: blur(20vmin);
+
+    z-index: 0;
+}
+
+#name
+{
+    position: absolute;
+    bottom: 50%;
+    font-size: 10rem;
     margin: 0px;
-    margin-top: 15vh;
+    z-index: 1;
 }
 
-#tagline
+#subtitle
 {
-    display: inline-block;
-    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    font-size: 4rem;
     margin: 0px;
-}
-            
-#cursor
-{
-    display: inline-block;
-    vertical-align: middle;
-    width: 3px;
-    height: var(--h2-size);
-    background-color: var(--text-color);
-    margin: 0px;
-    animation: blink .75s step-end infinite;
+    z-index: 1;
 }
 
-@keyframes blink
+@keyframes cursor 
 {
-    from, to
-    {
-        background-color: transparent;
-    }
-
-    50%
-    {
-        background-color: var(--text-color);
-    }
+    0% { opacity: 0.0; }
+    50% { opacity: 1.0; }
+    100% { opacity: 0.0; }
 }
